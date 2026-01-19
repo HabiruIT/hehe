@@ -10,14 +10,14 @@ let Product = function (id, name, price, quantity, category, isAvailable) {
 
 //Câu 2
 var products = [
-  new Product(1, "Laptop", 12, 10, "Electronics", true),
-  new Product(2, "Smartphone", 8, 0, "Electronics", true),
+  new Product(1, "Laptop", 12, 10, "Electronics", false),
+  new Product(2, "Smartphone", 0, 0, "Electronics", true),
   new Product(3, "Desk Chair", 15, 5, "Furniture", false),
   new Product(4, "Book: JavaScript Basics", 30, 50, "Books", true),
   new Product(5, "Wireless Mouse", 25, 0, "Electronics", true),
   new Product(3, "Chair", 15, 5, "Accessories", true),
   new Product(4, "Table", 30, 50, "Furniture", true),
-  new Product(5, "Mouse", 25, 0, "Accessories", true),
+  new Product(5, "Mouse", 25, 0, "Accessories", false),
 ];
 console.log(products);
 
@@ -67,4 +67,19 @@ total = products.reduce(function (sum, p) {
 console.log(total);
 
 //Câu 8
-for 
+for (const element of products) {
+  console.log(`${element.name} - ${element.category} - ${element.isAvailable}`);
+}
+
+//Câu 9
+for (const key in products[0]) {
+  console.log(key, products[0][key]);
+}
+
+//Câu 10
+result = products
+  .filter(function (p) {
+    return p.isAvailable && p.quantity > 0;
+  })
+  .map((p) => p.name);
+console.log(result);
